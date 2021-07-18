@@ -1,5 +1,9 @@
 package multimodule.domine;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 public class RecursoMapper {
 
     public Recurso fromDTO(RecursoDTO recursoDTO) {
@@ -15,5 +19,20 @@ public class RecursoMapper {
         recursoDTO.setId(recurso.getId());
         recursoDTO.setTipo(recurso.getTipo());
         return recursoDTO;
+    }
+    public List<RecursoDTO> fromCollectionList(List<Recurso> collection) {
+        if (collection == null) {
+            return null;
+
+        }
+        List<RecursoDTO> list = new ArrayList(collection.size());
+        Iterator listTracks = collection.iterator();
+
+        while(listTracks.hasNext()) {
+            Recurso recursos = (Recurso)listTracks.next();
+            list.add(fromModel(recursos));
+        }
+
+        return list;
     }
 }
