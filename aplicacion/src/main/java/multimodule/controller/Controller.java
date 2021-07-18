@@ -1,4 +1,4 @@
-package multimodul.controller;
+package multimodule.controller;
 
 import multimodule.domine.RecursoDTO;
 import multimodule.service.Servicio;
