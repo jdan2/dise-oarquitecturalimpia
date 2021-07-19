@@ -1,11 +1,12 @@
 package multimodule.controller;
 
-import multimodule.domine.RecursoDTO;
-import multimodule.service.Servicio;
+
+import multimodule.format.RecursoFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import multimodule.service.Servicio;
 
 import java.util.List;
 
@@ -15,15 +16,15 @@ import java.util.List;
 public class Controller {
 
       @Autowired
-    Servicio servicio ;
+      Servicio servicio ;
 
     @PostMapping("/crear")
-    public ResponseEntity<RecursoDTO> create(@RequestBody RecursoDTO recursoDTO) {
-        return new ResponseEntity<>(servicio.crearrecurso(recursoDTO), HttpStatus.CREATED);
+    public ResponseEntity<RecursoFormat> create(@RequestBody RecursoFormat recursoFormat) {
+        return new ResponseEntity<>(servicio.crearrecurso(recursoFormat), HttpStatus.CREATED);
     }
 
     @GetMapping()
-    public ResponseEntity<List<RecursoDTO>> findAll() {
+    public ResponseEntity<List<RecursoFormat>> findAll() {
         return new ResponseEntity(servicio.obtenerTodos(), HttpStatus.OK);
     }
 }

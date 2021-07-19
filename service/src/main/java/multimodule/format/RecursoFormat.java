@@ -1,12 +1,12 @@
-package multimodule.domine;
+package multimodule.format;
 
-public class RecursoDTO {
+public class RecursoFormat {
 
     private String id;
     private String nombre;
     private String tipo;
 
-    public RecursoDTO() {
+    public RecursoFormat() {
     }
 
     public String getId() {
